@@ -20,15 +20,20 @@ public class LeaveServiceImpl implements LeaveService {
     @Override
     public Page<LeaveApplication> listLeaves(Integer pageNum, Integer pageSize, Long employeeId, String status) {
         Page<LeaveApplication> page = new Page<>(pageNum, pageSize);
-        LambdaQueryWrapper<LeaveApplication> wrapper = new LambdaQueryWrapper<>();
+
+        // ✅ 如果指定了员工ID，用普通查询
         if (employeeId != null) {
+            LambdaQueryWrapper<LeaveApplication> wrapper = new LambdaQueryWrapper<>();
             wrapper.eq(LeaveApplication::getEmployeeId, employeeId);
+            if (StringUtils.hasText(status)) {
+                wrapper.eq(LeaveApplication::getStatus, status);
+            }
+            wrapper.orderByDesc(LeaveApplication::getCreateTime);
+            return leaveMapper.selectPage(page, wrapper);
         }
-        if (StringUtils.hasText(status)) {
-            wrapper.eq(LeaveApplication::getStatus, status);
-        }
-        wrapper.orderByDesc(LeaveApplication::getCreateTime);
-        return leaveMapper.selectPage(page, wrapper);
+
+        // ✅ 没有指定员工ID，用关联查询获取员工姓名
+        return leaveMapper.selectPageWithUser(page);
     }
 
     @Override

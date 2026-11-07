@@ -1,0 +1,249 @@
+2026-08-31 08:38:47.166  INFO 96656 --- [restartedMain] com.example.hrm.HrmApplication           : Starting HrmApplication using Java 1.8.0_421 on yzj with PID 96656 (D:\hrm\target\classes started by 23094 in D:\hrm)
+2026-08-31 08:38:47.170 DEBUG 96656 --- [restartedMain] com.example.hrm.HrmApplication           : Running with Spring Boot v2.6.13, Spring v5.3.23
+2026-08-31 08:38:47.171  INFO 96656 --- [restartedMain] com.example.hrm.HrmApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-08-31 08:38:47.221  INFO 96656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-31 08:38:47.222  INFO 96656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-31 08:38:48.820  INFO 96656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-31 08:38:48.823  INFO 96656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-31 08:38:48.868  INFO 96656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2026-08-31 08:38:49.683  INFO 96656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-08-31 08:38:49.693  INFO 96656 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-31 08:38:49.693  INFO 96656 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2026-08-31 08:38:49.789  INFO 96656 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-31 08:38:49.790  INFO 96656 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2567 ms
+2026-08-31 08:38:50.652 DEBUG 96656 --- [restartedMain] c.e.h.c.config.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-08-31 08:38:51.476  INFO 96656 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-08-31 08:38:52.330  INFO 96656 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12bde4ea, org.springframework.security.web.context.SecurityContextPersistenceFilter@29315b1d, org.springframework.security.web.header.HeaderWriterFilter@62762cea, org.springframework.web.filter.CorsFilter@bf0e1d3, org.springframework.security.web.authentication.logout.LogoutFilter@14e54c95, com.example.hrm.common.config.JwtAuthenticationFilter@2411bb93, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@632c024e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b310dbb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65d52fa3, org.springframework.security.web.session.SessionManagementFilter@3c71e6a0, org.springframework.security.web.access.ExceptionTranslationFilter@46f9bf50, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ffa9c47]
+2026-08-31 08:38:52.388  INFO 96656 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-08-31 08:38:52.443  INFO 96656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-08-31 08:38:52.457  INFO 96656 --- [restartedMain] com.example.hrm.HrmApplication           : Started HrmApplication in 5.761 seconds (JVM running for 7.171)
+2026-08-31 08:39:34.195  INFO 96656 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-31 08:39:34.195  INFO 96656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-31 08:39:34.197  INFO 96656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-08-31 08:39:44.154  WARN 96656 --- [http-nio-8080-exec-6] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/menu/current
+2026-08-31 08:39:44.154  WARN 96656 --- [http-nio-8080-exec-5] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/employee/list
+2026-08-31 08:39:44.170  WARN 96656 --- [http-nio-8080-exec-8] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /auth/refresh
+2026-08-31 08:40:01.886  INFO 96656 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-31 08:40:02.047  INFO 96656 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-31 10:53:06.645  WARN 96656 --- [http-nio-8080-exec-5] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/user/list
+2026-08-31 10:53:06.653  WARN 96656 --- [http-nio-8080-exec-2] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/menu/current
+2026-08-31 10:53:06.682  WARN 96656 --- [http-nio-8080-exec-6] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /auth/refresh
+2026-08-31 11:40:57.098  WARN 96656 --- [http-nio-8080-exec-1] c.e.h.c.e.GlobalExceptionHandler         : 数据重复：
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+### The error may exist in com/example/hrm/modules/employee/mapper/EmployeeMapper.java (best guess)
+### The error may involve com.example.hrm.modules.employee.mapper.EmployeeMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO employee  ( employee_no, name, gender,   department_id, position, entry_date,  status, phone )  VALUES  ( ?, ?, ?,   ?, ?, ?,  ?, ? )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+; Duplicate entry 'EMP-2024-010' for key 'employee_no'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+2026-08-31 11:40:57.102  WARN 96656 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DuplicateKeyException: <EOL><EOL>### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'<EOL><EOL>### The error may exist in com/example/hrm/modules/employee/mapper/EmployeeMapper.java (best guess)<EOL><EOL>### The error may involve com.example.hrm.modules.employee.mapper.EmployeeMapper.insert-Inline<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: INSERT INTO employee  ( employee_no, name, gender,   department_id, position, entry_date,  status, phone )  VALUES  ( ?, ?, ?,   ?, ?, ?,  ?, ? )<EOL><EOL>### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'<EOL>; Duplicate entry 'EMP-2024-010' for key 'employee_no'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no']
+2026-08-31 11:41:01.145  WARN 96656 --- [http-nio-8080-exec-4] c.e.h.c.e.GlobalExceptionHandler         : 数据重复：
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+### The error may exist in com/example/hrm/modules/employee/mapper/EmployeeMapper.java (best guess)
+### The error may involve com.example.hrm.modules.employee.mapper.EmployeeMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO employee  ( employee_no, name, gender,   department_id, position, entry_date,  status, phone )  VALUES  ( ?, ?, ?,   ?, ?, ?,  ?, ? )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+; Duplicate entry 'EMP-2024-010' for key 'employee_no'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'
+2026-08-31 11:41:01.146  WARN 96656 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DuplicateKeyException: <EOL><EOL>### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'<EOL><EOL>### The error may exist in com/example/hrm/modules/employee/mapper/EmployeeMapper.java (best guess)<EOL><EOL>### The error may involve com.example.hrm.modules.employee.mapper.EmployeeMapper.insert-Inline<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: INSERT INTO employee  ( employee_no, name, gender,   department_id, position, entry_date,  status, phone )  VALUES  ( ?, ?, ?,   ?, ?, ?,  ?, ? )<EOL><EOL>### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no'<EOL>; Duplicate entry 'EMP-2024-010' for key 'employee_no'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'EMP-2024-010' for key 'employee_no']
+2026-08-31 12:52:11.014  WARN 96656 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m35s177ms922µs300ns).
+2026-08-31 14:31:29.343  INFO 96656 --- [lettuce-nioEventLoop-4-1] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_421]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_421]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[na:1.8.0_421]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259) ~[netty-buffer-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_421]
+
+2026-08-31 14:31:29.428  INFO 96656 --- [lettuce-eventExecutorLoop-1-15] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /192.168.28.99:6379
+2026-08-31 14:31:29.692  INFO 96656 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ReconnectionHandler    : Reconnected to 192.168.28.99:6379
+2026-08-31 15:02:16.782  INFO 96656 --- [lettuce-nioEventLoop-4-2] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_421]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_421]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[na:1.8.0_421]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259) ~[netty-buffer-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_421]
+
+2026-08-31 15:02:17.076  INFO 96656 --- [lettuce-eventExecutorLoop-1-16] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /192.168.28.99:6379
+2026-08-31 15:02:22.227  WARN 96656 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: java.nio.channels.ClosedChannelException
+
+java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose(AbstractNioChannel.java:502) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doClose(NioSocketChannel.java:349) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:754) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.close(DefaultChannelPipeline.java:1352) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeClose(AbstractChannelHandlerContext.java:749) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$1200(AbstractChannelHandlerContext.java:61) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$11.run(AbstractChannelHandlerContext.java:732) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 15:02:22.322  INFO 96656 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 15:02:25.659  WARN 96656 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: Software caused connection abort: no further information: /192.168.28.99:6379
+
+io.netty.channel.AbstractChannel$AnnotatedSocketException: Software caused connection abort: no further information: /192.168.28.99:6379
+Caused by: java.net.SocketException: Software caused connection abort: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715) ~[na:1.8.0_421]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 15:02:27.322  INFO 96656 --- [lettuce-eventExecutorLoop-1-10] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 15:02:27.322  WARN 96656 --- [lettuce-nioEventLoop-4-12] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: No route to host: no further information: /192.168.28.99:6379
+
+io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: no further information: /192.168.28.99:6379
+Caused by: java.net.NoRouteToHostException: No route to host: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715) ~[na:1.8.0_421]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 15:58:54.127  INFO 96656 --- [lettuce-eventExecutorLoop-1-12] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 15:58:54.152  WARN 96656 --- [lettuce-nioEventLoop-4-13] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: No route to host: no further information: /192.168.28.99:6379
+
+io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: no further information: /192.168.28.99:6379
+Caused by: java.net.NoRouteToHostException: No route to host: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_421]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715) ~[na:1.8.0_421]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 15:59:00.476  INFO 96656 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 15:59:00.679  WARN 96656 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h18m14s898ms798µs).
+2026-08-31 15:59:03.616  INFO 96656 --- [lettuce-nioEventLoop-4-15] i.l.core.protocol.ReconnectionHandler    : Reconnected to 192.168.28.99:6379
+2026-08-31 16:13:50.379  WARN 96656 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m19s524ms480µs).
+2026-08-31 16:49:32.884  WARN 96656 --- [http-nio-8080-exec-5] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/menu/current
+2026-08-31 16:49:32.884  WARN 96656 --- [http-nio-8080-exec-9] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /api/employee/list
+2026-08-31 16:49:32.907  WARN 96656 --- [http-nio-8080-exec-7] c.e.h.c.config.JwtAuthenticationFilter   : JWT token expired for request: /auth/refresh
+2026-08-31 17:02:32.078  WARN 96656 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m10s892ms177µs900ns).
+2026-08-31 17:07:00.882  INFO 96656 --- [lettuce-eventExecutorLoop-1-11] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /192.168.28.99:6379
+2026-08-31 17:07:02.932  WARN 96656 --- [lettuce-nioEventLoop-4-16] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: Connection refused: no further information: /192.168.28.99:6379
+2026-08-31 17:07:08.174  INFO 96656 --- [lettuce-eventExecutorLoop-1-15] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 17:07:13.283  WARN 96656 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: java.nio.channels.ClosedChannelException
+
+java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose(AbstractNioChannel.java:502) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doClose(NioSocketChannel.java:349) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:754) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.close(DefaultChannelPipeline.java:1352) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeClose(AbstractChannelHandlerContext.java:749) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$1200(AbstractChannelHandlerContext.java:61) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$11.run(AbstractChannelHandlerContext.java:732) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 17:07:13.375  INFO 96656 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 17:07:18.473  WARN 96656 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: java.nio.channels.ClosedChannelException
+
+java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose(AbstractNioChannel.java:502) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doClose(NioSocketChannel.java:349) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:754) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.close(DefaultChannelPipeline.java:1352) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeClose(AbstractChannelHandlerContext.java:749) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$1200(AbstractChannelHandlerContext.java:61) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$11.run(AbstractChannelHandlerContext.java:732) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 17:07:18.578  INFO 96656 --- [lettuce-eventExecutorLoop-1-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 17:07:23.676  WARN 96656 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: java.nio.channels.ClosedChannelException
+
+java.nio.channels.ClosedChannelException: null
+	at io.netty.channel.nio.AbstractNioChannel.doClose(AbstractNioChannel.java:502) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doClose(NioSocketChannel.java:349) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.doClose0(AbstractChannel.java:754) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:731) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.close(AbstractChannel.java:620) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.close(DefaultChannelPipeline.java:1352) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeClose(AbstractChannelHandlerContext.java:749) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$1200(AbstractChannelHandlerContext.java:61) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$11.run(AbstractChannelHandlerContext.java:732) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_421]
+
+2026-08-31 17:07:23.773  INFO 96656 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.28.99:6379
+2026-08-31 17:07:25.101  WARN 96656 --- [SpringApplicationShutdownHook] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.28.99:6379]: java.util.concurrent.CancellationException
+2026-08-31 17:07:25.235  INFO 96656 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-31 17:07:25.237  INFO 96656 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

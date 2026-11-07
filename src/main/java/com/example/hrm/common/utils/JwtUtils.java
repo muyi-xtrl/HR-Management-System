@@ -16,56 +16,94 @@ import java.util.Map;
 @Component
 public class JwtUtils {
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.secret:hrm-secret-key-for-jwt-authentication-2024}")
     private String secret;
 
-    @Value("${jwt.expiration}")
+    @Value("${jwt.expiration:7200000}")
     private Long expiration;
 
     private SecretKey getSigningKey() {
-        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    // 生成 Token
-    public String generateToken(Long userId, String username) {
+    /**
+     * 生成Token（3个参数）
+     */
+    public String generateToken(Long userId, String username, String role) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", userId);
         claims.put("username", username);
+        claims.put("role", role);
+        return generateToken(claims);
+    }
 
+    /**
+     * 生成Token（Map参数）
+     */
+    public String generateToken(Map<String, Object> claims) {
         Date now = new Date();
-        Date expireDate = new Date(now.getTime() + expiration);
+        Date expiryDate = new Date(now.getTime() + expiration);
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(username)
                 .setIssuedAt(now)
-                .setExpiration(expireDate)
+                .setExpiration(expiryDate)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    // 解析 Token
-    public Claims parseToken(String token) {
+    /**
+     * 从Token中获取用户名
+     */
+    public String getUsernameFromToken(String token) {
+        Claims claims = getClaimsFromToken(token);
+        return claims.get("username", String.class);
+    }
+
+    /**
+     * 从Token中获取用户名（别名，兼容旧代码）
+     */
+    public String getUsername(String token) {
+        return getUsernameFromToken(token);
+    }
+
+    /**
+     * 从Token中获取用户ID
+     */
+    public Long getUserIdFromToken(String token) {
+        Claims claims = getClaimsFromToken(token);
+        return claims.get("userId", Long.class);
+    }
+
+    /**
+     * 从Token中获取角色
+     */
+    public String getRoleFromToken(String token) {
+        Claims claims = getClaimsFromToken(token);
+        return claims.get("role", String.class);
+    }
+
+    /**
+     * 验证Token是否有效
+     */
+    public Boolean validateToken(String token) {
+        try {
+            getClaimsFromToken(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 获取Claims
+     */
+    private Claims getClaimsFromToken(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-    }
-
-    // 获取用户ID
-    public Long getUserId(String token) {
-        return parseToken(token).get("userId", Long.class);
-    }
-
-    // 获取用户名
-    public String getUsername(String token) {
-        return parseToken(token).getSubject();
-    }
-
-    // 验证 Token 是否过期
-    public Boolean isTokenExpired(String token) {
-        Date expirationDate = parseToken(token).getExpiration();
-        return expirationDate.before(new Date());
     }
 }

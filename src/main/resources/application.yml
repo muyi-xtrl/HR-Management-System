@@ -2,14 +2,12 @@ server:
   port: 8080
 
 spring:
-  # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/hrm_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 123456
 
-  # Redis 配置
   redis:
     host: 192.168.28.99
     port: 6379
@@ -22,25 +20,21 @@ spring:
         max-idle: 8
         min-idle: 0
 
-  # Jackson 时间格式
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
 
-  # Thymeleaf 配置
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
     suffix: .html
     encoding: UTF-8
 
-  # ========== 新增：Spring Security 临时配置 ==========
   security:
     user:
       name: admin
       password: 123456
 
-# ========== MyBatis-Plus 配置（删掉了 mybatis 配置） ==========
 mybatis-plus:
   mapper-locations: classpath*:mapper/**/*.xml
   type-aliases-package: com.example.hrm.modules.*.entity
@@ -54,11 +48,10 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-# JWT 配置
 jwt:
   secret: hrm-secret-key-for-jwt-authentication-2024
-  expiration: 7200000  # 2小时（毫秒）
-# 日志配置
+  expiration: 7200000
+
 logging:
   level:
     com.example.hrm: debug
@@ -79,4 +72,3 @@ springdoc:
     tags-sorter: alpha
     try-it-out-enabled: true
     filter: true
-

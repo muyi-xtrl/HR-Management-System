@@ -1,143 +1,107 @@
-markdown
-# 🏢 企业员工人事管理系统 (HRM)
+# 企业人事管理系统（HRM）
 
 <p align="center">
-  <img src="https://img.shields.io/badge/SpringBoot-2.6.13-brightgreen.svg" alt="SpringBoot">
-  <img src="https://img.shields.io/badge/Vue-3.x-42b883.svg" alt="Vue3">
-  <img src="https://img.shields.io/badge/MySQL-8.0-blue.svg" alt="MySQL">
-  <img src="https://img.shields.io/badge/Redis-6.x-red.svg" alt="Redis">
-  <img src="https://img.shields.io/badge/JWT-Auth-orange.svg" alt="JWT">
-  <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="License">
+  <img src="https://img.shields.io/badge/Spring%20Boot-2.6.13-brightgreen" alt="SpringBoot">
+  <img src="https://img.shields.io/badge/Vue-3.x-42b883" alt="Vue3">
+  <img src="https://img.shields.io/badge/MySQL-8.0-00758F" alt="MySQL">
+  <img src="https://img.shields.io/badge/Redis-6.x-DC382D" alt="Redis">
+  <img src="https://img.shields.io/badge/JWT-Auth-orange" alt="JWT">
 </p>
 
-## 📖 项目简介
+Spring Boot + Vue 3 前后端分离的人事管理系统。员工、部门、考勤、请假、薪资、RBAC 权限的完整闭环。
 
-本项目是一个基于 **Spring Boot + Vue 3** 的前后端分离架构的**企业员工人事管理系统 (HRM)**。
+> **这个项目的定位**：它是我的 **Java 工程地基**——用来证明我能把一个业务系统按规范分层、把认证授权链路走通、把异常和权限处理收口。**它不是我的主攻方向**，我真正想做的是数据智能与 AI 应用落地。把它放在这里，是因为"能写干净的后端工程"是做 AI 应用的前提，而不是因为人事管理系统本身有多新颖。
 
-旨在为企业提供数字化的人事管理解决方案，实现员工信息、组织架构、考勤打卡、请假审批、薪资管理及 RBAC 权限体系的标准化线上管控，彻底替代传统人工管理模式，提升人事管理效率。
+**如果你在看我的作品集**：这个项目建议只花 2 分钟看结构和认证实现，把时间留给 [金融风险预警系统](../Finance-Warning-System)（数据 + 工程深度）和 [AI Agent](../ai-agent)（AI 应用落地）。
 
-## ✨ 核心功能
+---
 
-- 🔐 **认证授权**：基于 Spring Security + JWT 的无状态认证，支持验证码登录、Token 自动刷新、登录失败锁定。
-- 👥 **员工管理**：员工信息的增删改查、多条件分页搜索、工号自动生成、Excel 导出。
-- 🏢 **部门管理**：组织架构的树形展示与维护。
-- ⏱️ **考勤管理**：上下班打卡、考勤历史查询、自动化考勤状态判定（正常/早退/异常）。
-- 📝 **请假管理**：员工在线申请，HR/管理员多级审批流转。
-- 💰 **薪资管理**：薪资生成、发放与个人薪资查询。
-- 🛡️ **系统管理**：用户管理、动态菜单渲染、RBAC 角色权限控制、AOP 操作日志记录。
+## 我为什么把它做成这样（设计取舍）
 
-## 🛠️ 技术栈
+人事管理系统是最容易写成"CRUD 堆砌"的题材。我刻意在三个地方做了额外设计，它们是我面试时真正会讲的部分：
 
-### 后端技术
-- **核心框架**：Spring Boot 2.6.13
-- **安全框架**：Spring Security, JWT (jjwt)
-- **持久层**：MyBatis-Plus 3.5.3
-- **数据库**：MySQL 8.0, Redis 6.x
-- **工具库**：Hutool, EasyExcel, Lombok, Kaptcha(验证码)
+**1. 认证不是"能登录就行"，而是一条完整的防线**
 
-### 前端技术
-- **核心框架**：Vue 3 (Composition API)
-- **UI 框架**：Element Plus
-- **构建工具**：Vite
-- **状态管理**：Pinia
-- **网络请求**：Axios
-- **图表库**：ECharts
+登录链路同时串了四件事：Redis 验证码（校验后立即删除，防重放）→ BCrypt 密码比对 → JWT 签发（携带角色）→ 失败计数锁定。失败 5 次锁定 15 分钟，计数和锁定键都放在 Redis 并设置 TTL，不需要定时任务清理。
 
-## 📁 项目结构
+这里有个容易忽略的细节：`JwtAuthenticationFilter` 在解析 Token 后会**记录每条请求的操作日志**，但显式跳过了 `/auth/login`——否则登录请求会触发日志写入，而日志写入又依赖认证状态，形成死循环。这个坑是调试时才发现的。
 
-```text
-hrm/
-├── frontend/                  # 前端 Vue3 源码
-├── src/
-│   └── main/
-│       ├── java/com/example/hrm/
-│       │   ├── common/        # 公共模块（核心配置、工具类、全局异常）
-│       │   │   ├── config/    # Security, Redis, MyBatisPlus 等配置
-│       │   │   ├── controller/# 公共控制器（验证码等）
-│       │   │   ├── exception/ # 全局异常处理
-│       │   │   └── utils/     # JwtUtils, RedisUtils, Result 等
-│       │   ├── modules/       # 业务模块（高内聚）
-│       │   │   ├── user/      # 用户与认证
-│       │   │   ├── employee/  # 员工管理
-│       │   │   ├── department/# 部门管理
-│       │   │   ├── attendance/# 考勤管理
-│       │   │   ├── leave/     # 请假管理
-│       │   │   ├── salary/    # 薪资管理
-│       │   │   ├── system/    # 系统菜单与权限
-│       │   │   └── log/       # 操作日志
-│       │   └── HrmApplication.java # 启动类
-│       └── resources/
-│           └── application.yml # 全局配置文件
-├── pom.xml                    # Maven 依赖配置
-└── README.md                  # 项目说明文档
+**2. 权限控制落在接口级，而不是只做菜单隐藏**
+
+RBAC 做了两层：前端根据动态菜单渲染可见入口，后端用 `@PreAuthorize` 做接口级校验。前端隐藏只是体验，后端校验才是安全边界——只做前者是这类项目最常见的偷懒。
+
+**3. 全项目统一返回与逻辑删除**
+
+所有接口返回 `Result<T>` 统一封装；所有删除走 MyBatis-Plus 逻辑删除（`deleted` 字段），不做物理删除。前者让前端只需处理一套错误协议，后者保留了人事数据的可追溯性。
+
+---
+
+## 技术栈
+
+**后端**：Spring Boot 2.6.13 · Spring Security · JWT（jjwt）· MyBatis-Plus 3.5.3 · MySQL 8.0 · Redis 6.x · EasyExcel · Kaptcha
+
+**前端**：Vue 3（Composition API）· Element Plus · Vite · Pinia · Axios · ECharts
+
+## 功能范围
+
+- 认证授权：验证码登录、Token 刷新、失败锁定、BCrypt 加密
+- 员工管理：多条件分页、工号自动生成、Excel 导出
+- 组织与考勤：部门树、打卡、考勤状态自动判定
+- 请假与薪资：多级审批流转、薪资生成与查询
+- 系统管理：用户管理、动态菜单、RBAC 权限、操作日志
+
+## 项目结构
+
+```
+src/main/java/com/example/hrm/
+├── common/                    # 公共层：配置、工具类、全局异常
+│   ├── config/                # Security / Redis / MyBatisPlus / Cors / Swagger
+│   ├── exception/             # BusinessException + GlobalExceptionHandler
+│   └── utils/                 # JwtUtils / RedisUtils / Result
+└── modules/                   # 业务层：按领域垂直拆分
+    ├── user/                  # 认证与用户
+    ├── employee/  department/  attendance/
+    ├── leave/     salary/      system/    log/
 ```
 
-## 🚀 快速开始
+`common` 放横切关注点，`modules` 按业务域垂直拆分。新增一个业务模块时不需要改动公共层，这是我刻意保持的边界。
 
-### 1. 环境准备
-- JDK 1.8+
-- MySQL 8.0+
-- Redis 6.x+
-- Node.js 16+
-- Maven 3.6+
+---
 
-### 2. 数据库初始化
-1. 创建数据库 `hrm_db` (字符集建议 `utf8mb4`)。
-2. 导入根目录下的 `hrm_db.sql` 文件。
+## 本地运行
 
-### 3. 修改配置
-修改 `src/main/resources/application.yml` 文件，配置你的 MySQL 和 Redis 连接信息：
+**环境**：JDK 1.8+ · MySQL 8.0+ · Redis 6.x+ · Node.js 16+ · Maven 3.6+
 
-```yaml
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/hrm_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: root
-    password: 你的密码
-  redis:
-    host: localhost # 或你的 Redis IP
-    port: 6379
-```
-
-### 4. 启动后端
-在 IDEA 中运行 `HrmApplication.java`，后端默认运行在 `http://localhost:8080`。
-
-### 5. 启动前端
 ```bash
+# 1. 建库（utf8mb4），并执行建表脚本（见下方说明）
+# 2. 修改 src/main/resources/application.yml 中的数据库与 Redis 连接
+# 3. 启动后端：运行 HrmApplication.java（默认 8080）
+# 4. 启动前端
 cd frontend
 npm install
-npm run dev
+npm run dev        # 默认 http://localhost:5173
 ```
-前端默认运行在 `http://localhost:5173`。
 
-## 🔑 默认账号
+> **数据库脚本说明**：初版提交时文档引用了一个并未实际提交的 `hrm_db.sql`，导致按文档无法启动。这个疏漏提醒我把"文档与产物一致性"当回事——目前已改为按 entity 定义自行建表，后续会补上一份可执行的 schema 脚本。
+
+**默认账号**（仅用于本地演示，部署前必须修改）：
 
 | 角色 | 用户名 | 密码 |
 | :--- | :--- | :--- |
 | 超级管理员 | `admin` | `123456` |
-| 人事专员 (HR) | `hr` | `123456` |
+| 人事专员 | `hr` | `123456` |
 | 普通员工 | `zhangwei` | `123456` |
 
-## 🖼️ 系统预览
-
-*(建议在这里放 2-3 张系统的核心截图，比如登录页、数据看板、考勤打卡页，会让项目看起来非常专业)*
-
-## 📝 开发规范
-
-- **分层架构**：严格遵循 `Controller -> Service -> Mapper` 的分层规范。
-- **统一返回**：所有接口使用 `Result<T>` 类进行统一封装。
-- **权限控制**：基于 `@PreAuthorize` 注解进行接口级权限校验。
-- **数据删除**：全部采用 MyBatis-Plus 逻辑删除 (`deleted` 字段)。
-
-## 📄 开源协议
-
-本项目采用 [MIT](LICENSE) 协议开源，仅供学习交流使用。
-```
+**配置安全提示**：`application.yml` 中的数据库密码、Redis 地址、JWT 密钥目前是本地开发用的占位值。若要做成公开演示，应改为环境变量注入，不要提交真实凭据。
 
 ---
 
-## 💡 额外建议（为了 GitHub 更好看）：
+## 我知道的局限
 
-1. **加一张系统截图**：把你的登录页或者主页截图，上传到 Github 仓库，然后把链接放到 `🖼️ 系统预览` 下面，有图有真相，HR 和面试官一眼就会觉得你做得好。
-2. **补充 `.gitignore`**：确保把 `target/`、`node_modules/` 和 `application.yml`（如果不包含敏感信息可保留）加进 `.gitignore`，不然你的 GitHub 会变得很大。
-3. **注意配置文件的隐私**：如果你 GitHub 是公开的，建议把 `application.yml` 里面的数据库密码替换成占位符（比如 `123456`），避免泄露服务器真实密码。
+写出来不是自我批评，而是划清这个项目的能力边界——面试官问到时我会主动说：
+
+- **业务本身没有难度**：人事管理是成熟题材，价值在于工程规范，不在于业务创新。
+- **操作日志写在 Filter 里而非 AOP**：能工作，但横切逻辑侵入了过滤器；更干净的做法是用 `@Aspect` 注解，这是我下一步会重构的点。
+- **没有并发与性能场景**：没有秒杀、没有热点数据、没有缓存穿透/击穿的真实压力，Redis 在这里主要承担验证码和计数。
+
+这些局限正是我在 [金融风险预警系统](../Finance-Warning-System) 里针对性补的：那个项目有幂等性、索引优化和真实的批处理链路。
